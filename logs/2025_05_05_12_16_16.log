@@ -1,0 +1,6 @@
+[2025-05-05 12:16:18,369] 97 werkzeug - WARNING -  * Debugger is active!
+[2025-05-05 12:16:18,371] 97 werkzeug - INFO -  * Debugger PIN: 143-783-530
+[2025-05-05 12:16:18,435] 97 werkzeug - WARNING -  * Debugger is active!
+[2025-05-05 12:16:18,440] 97 werkzeug - INFO -  * Debugger PIN: 143-783-530
+[2025-05-05 12:16:26,560] 97 werkzeug - INFO -  * Detected change in 'C:\\Users\\Praveen\\OneDrive\\Desktop\\weather_prediction\\src\\Weather_prediction\\components\\Model_trainer.py', reloading
+[2025-05-05 12:16:26,601] 97 werkzeug - INFO -  * Detected change in 'C:\\Users\\Praveen\\OneDrive\\Desktop\\weather_prediction\\src\\Weather_prediction\\components\\Model_trainer.py', reloading

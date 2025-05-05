@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather Prediction</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; }
+        input, select { width: 100%; padding: 8px; margin-top: 5px; }
+        button { padding: 10px 20px; background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #45a049; }
+    </style>
+</head>
+<body>
+    <h1>Weather Prediction</h1>
+    <form action="/predict" method="post">
+        <div class="form-group">
+            <label for="Location">Location:</label>
+            <select id="Location" name="Location" required>
+                <option value="New York">New York</option>
+                <option value="Los Angeles">Los Angeles</option>
+                <option value="Chicago">Chicago</option>
+                <!-- Add more locations as needed -->
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="Temperature">Temperature (°C):</label>
+            <input type="number" step="0.1" id="Temperature" name="Temperature" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="Humidity">Humidity (%):</label>
+            <input type="number" step="0.1" id="Humidity" name="Humidity" min="0" max="100" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="Wind_Speed">Wind Speed (km/h):</label>
+            <input type="number" step="0.1" id="Wind_Speed" name="Wind_Speed" min="0" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="Precipitation">Precipitation (mm):</label>
+            <input type="number" step="0.1" id="Precipitation" name="Precipitation" min="0" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="Cloud_Cover">Cloud Cover (%):</label>
+            <input type="number" step="1" id="Cloud_Cover" name="Cloud_Cover" min="0" max="100" required>
+        </div>
+        
+        <button type="submit">Predict</button>
+    </form>
+</body>
+</html>

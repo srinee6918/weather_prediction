@@ -1,0 +1,19 @@
+[2025-05-05 11:50:25,075] 97 werkzeug - WARNING -  * Debugger is active!
+[2025-05-05 11:50:25,087] 97 werkzeug - INFO -  * Debugger PIN: 143-783-530
+[2025-05-05 11:50:34,858] 34 root - INFO - Received form data:
+[2025-05-05 11:50:34,864] 37 root - INFO - Location: washington
+[2025-05-05 11:50:34,864] 37 root - INFO - Temperature: 23
+[2025-05-05 11:50:34,864] 37 root - INFO - Humidity: 24
+[2025-05-05 11:50:34,865] 37 root - INFO - Wind_Speed: 60
+[2025-05-05 11:50:34,865] 37 root - INFO - Precipitation: 21
+[2025-05-05 11:50:34,865] 37 root - INFO - Cloud_Cover: partly cloudy
+[2025-05-05 11:50:34,907] 62 root - INFO - Dataframe Gathered
+[2025-05-05 11:50:34,907] 51 root - INFO - Input DataFrame created:
+[2025-05-05 11:50:34,911] 52 root - INFO - 
+     Location  Temperature  Humidity  Wind_Speed  Precipitation    Cloud_Cover
+0  washington         23.0      24.0        60.0           21.0  partly cloudy
+[2025-05-05 11:50:34,911] 55 root - INFO - Initializing PredictPipeline...
+[2025-05-05 11:50:34,911] 57 root - INFO - Making prediction...
+[2025-05-05 11:50:34,911] 53 root - INFO - Exception Occured in load_object function utils
+[2025-05-05 11:50:34,911] 73 root - ERROR - Error during prediction: An error occurred: Error occured in python script name [C:\Users\Praveen\OneDrive\Desktop\weather_prediction\src\Weather_prediction\pipelines\Prediction_pipeline.py] line number [18] error message [Error occured in python script name [C:\Users\Praveen\OneDrive\Desktop\weather_prediction\src\Weather_prediction\utils\utils.py] line number [50] error message [[Errno 2] No such file or directory: 'Artifacts\\preprocessor.pkl']]
+[2025-05-05 11:50:34,912] 97 werkzeug - INFO - 127.0.0.1 - - [05/May/2025 11:50:34] "[31m[1mPOST /predict HTTP/1.1[0m" 400 -

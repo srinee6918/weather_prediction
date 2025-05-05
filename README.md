@@ -1,2 +1,0 @@
-# weather_prediction
-weather_prediction

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; }
+        .result { 
+            padding: 20px; 
+            margin: 20px 0; 
+            border-radius: 5px; 
+            text-align: center;
+        }
+        .rain { background-color: #d4edda; color: #155724; }
+        .no-rain { background-color: #f8d7da; color: #721c24; }
+        button { 
+            padding: 10px 20px; 
+            background-color: #007bff; 
+            color: white; 
+            border: none; 
+            cursor: pointer; 
+            margin-top: 20px;
+        }
+        button:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+    <h1>Prediction Result</h1>
+    <div class="result {% if final_result == 1 %}rain{% else %}no-rain{% endif %}">
+        <h2>{% if final_result == 1 %}Rain{% else %}No Rain{% endif %}</h2>
+    </div>
+    <button onclick="window.history.back()">Make Another Prediction</button>
+</body>
+</html>
