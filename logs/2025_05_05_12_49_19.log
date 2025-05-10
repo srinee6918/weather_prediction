@@ -24,3 +24,179 @@
 [2025-05-05 12:57:42,858] 73 root - INFO - Raw prediction results: [0.]
 [2025-05-05 12:57:42,858] 75 root - INFO - Final prediction result: 0.0
 [2025-05-05 12:57:42,861] 97 werkzeug - INFO - 127.0.0.1 - - [05/May/2025 12:57:42] "POST /predict HTTP/1.1" 200 -
+[2025-05-05 13:20:02,233] 34 root - INFO - Received form data:
+[2025-05-05 13:20:02,234] 37 root - INFO - Location: washington
+[2025-05-05 13:20:02,234] 37 root - INFO - Temperature: 25
+[2025-05-05 13:20:02,234] 37 root - INFO - Humidity: 24
+[2025-05-05 13:20:02,234] 37 root - INFO - Wind_Speed: 60
+[2025-05-05 13:20:02,234] 37 root - INFO - Precipitation: 34
+[2025-05-05 13:20:02,234] 37 root - INFO - Cloud_Cover: partly cloudy
+[2025-05-05 13:20:02,234] 59 root - INFO - Input data validated and created
+[2025-05-05 13:20:02,236] 73 root - INFO - Dataframe Gathered
+[2025-05-05 13:20:02,236] 63 root - INFO - Input DataFrame created:
+[2025-05-05 13:20:02,238] 64 root - INFO - 
+     Location  Temperature  Humidity  Wind Speed  Precipitation    Cloud Cover
+0  washington         25.0      24.0        60.0           34.0  partly cloudy
+[2025-05-05 13:20:02,238] 67 root - INFO - Initializing PredictPipeline...
+[2025-05-05 13:20:02,240] 69 root - INFO - Making prediction...
+[2025-05-05 13:20:02,241] 27 root - INFO - Loading preprocessor from C:\Users\Praveen\OneDrive\Desktop\weather_prediction\artifacts\preprocessor.pkl
+[2025-05-05 13:20:02,241] 29 root - INFO - Loading model from C:\Users\Praveen\OneDrive\Desktop\weather_prediction\artifacts\final_model.pkl
+[2025-05-05 13:20:02,250] 32 root - INFO - Transforming input features
+[2025-05-05 13:20:02,253] 41 root - ERROR - Error in prediction: Cannot use mean strategy with non-numeric data:
+could not convert string to float: 'partly cloudy'
+[2025-05-05 13:20:02,253] 82 root - ERROR - Prediction error: Error occured in python script name [C:\Users\Praveen\OneDrive\Desktop\weather_prediction\src\Weather_prediction\pipelines\Prediction_pipeline.py] line number [33] error message [Cannot use mean strategy with non-numeric data:
+could not convert string to float: 'partly cloudy']
+Traceback (most recent call last):
+  File "C:\Users\Praveen\OneDrive\Desktop\weather_prediction\src\Weather_prediction\pipelines\Prediction_pipeline.py", line 33, in predict
+    scaled_data = preprocessor.transform(features)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\sklearn\utils\_set_output.py", line 319, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\sklearn\compose\_column_transformer.py", line 1101, in transform
+    Xs = self._call_func_on_transformers(
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\sklearn\compose\_column_transformer.py", line 910, in _call_func_on_transformers
+    return Parallel(n_jobs=self.n_jobs)(jobs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\sklearn\utils\parallel.py", line 77, in __call__
+    return super().__call__(iterable_with_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\joblib\parallel.py", line 1918, in __call__
+    return output if self.return_generator else list(output)
+                                                ^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\joblib\parallel.py", line 1847, in _get_sequential_output
+    res = func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\sklearn\utils\parallel.py", line 139, in __call__
+    return self.function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\sklearn\pipeline.py", line 1531, in _transform_one
+    res = transformer.transform(X, **params.transform)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\sklearn\pipeline.py", line 1092, in transform
+    Xt = transform.transform(Xt, **routed_params[name].transform)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\sklearn\utils\_set_output.py", line 319, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\sklearn\impute\_base.py", line 607, in transform
+    X = self._validate_input(X, in_fit=False)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\sklearn\impute\_base.py", line 361, in _validate_input
+    raise new_ve from None
+ValueError: Cannot use mean strategy with non-numeric data:
+could not convert string to float: 'partly cloudy'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Praveen\OneDrive\Desktop\weather_prediction\app.py", line 72, in predict_datapoint
+    results = predict_pipeline.predict(pred_df)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\OneDrive\Desktop\weather_prediction\src\Weather_prediction\pipelines\Prediction_pipeline.py", line 42, in predict
+    raise customexception(e, sys)
+src.Weather_prediction.exception.customexception: Error occured in python script name [C:\Users\Praveen\OneDrive\Desktop\weather_prediction\src\Weather_prediction\pipelines\Prediction_pipeline.py] line number [33] error message [Cannot use mean strategy with non-numeric data:
+could not convert string to float: 'partly cloudy']
+[2025-05-05 13:20:02,275] 91 root - ERROR - Error in predict_datapoint: An error occurred: Prediction failed: Error occured in python script name [C:\Users\Praveen\OneDrive\Desktop\weather_prediction\src\Weather_prediction\pipelines\Prediction_pipeline.py] line number [33] error message [Cannot use mean strategy with non-numeric data:
+could not convert string to float: 'partly cloudy']
+
+Traceback:
+  File "C:\Users\Praveen\OneDrive\Desktop\weather_prediction\app.py", line 72, in predict_datapoint
+    results = predict_pipeline.predict(pred_df)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\OneDrive\Desktop\weather_prediction\src\Weather_prediction\pipelines\Prediction_pipeline.py", line 42, in predict
+    raise customexception(e, sys)
+Traceback (most recent call last):
+  File "C:\Users\Praveen\OneDrive\Desktop\weather_prediction\src\Weather_prediction\pipelines\Prediction_pipeline.py", line 33, in predict
+    scaled_data = preprocessor.transform(features)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\sklearn\utils\_set_output.py", line 319, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\sklearn\compose\_column_transformer.py", line 1101, in transform
+    Xs = self._call_func_on_transformers(
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\sklearn\compose\_column_transformer.py", line 910, in _call_func_on_transformers
+    return Parallel(n_jobs=self.n_jobs)(jobs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\sklearn\utils\parallel.py", line 77, in __call__
+    return super().__call__(iterable_with_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\joblib\parallel.py", line 1918, in __call__
+    return output if self.return_generator else list(output)
+                                                ^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\joblib\parallel.py", line 1847, in _get_sequential_output
+    res = func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\sklearn\utils\parallel.py", line 139, in __call__
+    return self.function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\sklearn\pipeline.py", line 1531, in _transform_one
+    res = transformer.transform(X, **params.transform)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\sklearn\pipeline.py", line 1092, in transform
+    Xt = transform.transform(Xt, **routed_params[name].transform)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\sklearn\utils\_set_output.py", line 319, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\sklearn\impute\_base.py", line 607, in transform
+    X = self._validate_input(X, in_fit=False)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\sklearn\impute\_base.py", line 361, in _validate_input
+    raise new_ve from None
+ValueError: Cannot use mean strategy with non-numeric data:
+could not convert string to float: 'partly cloudy'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Praveen\OneDrive\Desktop\weather_prediction\app.py", line 72, in predict_datapoint
+    results = predict_pipeline.predict(pred_df)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\OneDrive\Desktop\weather_prediction\src\Weather_prediction\pipelines\Prediction_pipeline.py", line 42, in predict
+    raise customexception(e, sys)
+src.Weather_prediction.exception.customexception: Error occured in python script name [C:\Users\Praveen\OneDrive\Desktop\weather_prediction\src\Weather_prediction\pipelines\Prediction_pipeline.py] line number [33] error message [Cannot use mean strategy with non-numeric data:
+could not convert string to float: 'partly cloudy']
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Praveen\OneDrive\Desktop\weather_prediction\app.py", line 87, in predict_datapoint
+    raise RuntimeError(error_msg)
+RuntimeError: Prediction failed: Error occured in python script name [C:\Users\Praveen\OneDrive\Desktop\weather_prediction\src\Weather_prediction\pipelines\Prediction_pipeline.py] line number [33] error message [Cannot use mean strategy with non-numeric data:
+could not convert string to float: 'partly cloudy']
+
+Traceback:
+  File "C:\Users\Praveen\OneDrive\Desktop\weather_prediction\app.py", line 72, in predict_datapoint
+    results = predict_pipeline.predict(pred_df)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\OneDrive\Desktop\weather_prediction\src\Weather_prediction\pipelines\Prediction_pipeline.py", line 42, in predict
+    raise customexception(e, sys)
+
+[2025-05-05 13:20:02,275] 97 werkzeug - INFO - 127.0.0.1 - - [05/May/2025 13:20:02] "[31m[1mPOST /predict HTTP/1.1[0m" 400 -
+[2025-05-06 11:22:44,177] 97 werkzeug - INFO - 127.0.0.1 - - [06/May/2025 11:22:44] "GET / HTTP/1.1" 200 -
+[2025-05-06 11:22:44,528] 97 werkzeug - INFO - 127.0.0.1 - - [06/May/2025 11:22:44] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2025-05-06 11:23:07,664] 34 root - INFO - Received form data:
+[2025-05-06 11:23:07,664] 37 root - INFO - Location: New York
+[2025-05-06 11:23:07,664] 37 root - INFO - Temperature: 28
+[2025-05-06 11:23:07,664] 37 root - INFO - Humidity: 20
+[2025-05-06 11:23:07,666] 37 root - INFO - Wind_Speed: 60
+[2025-05-06 11:23:07,666] 37 root - INFO - Precipitation: 76
+[2025-05-06 11:23:07,666] 37 root - INFO - Cloud_Cover: 78
+[2025-05-06 11:23:07,666] 59 root - INFO - Input data validated and created
+[2025-05-06 11:23:07,669] 73 root - INFO - Dataframe Gathered
+[2025-05-06 11:23:07,669] 63 root - INFO - Input DataFrame created:
+[2025-05-06 11:23:07,676] 64 root - INFO - 
+   Location  Temperature  Humidity  Wind Speed  Precipitation Cloud Cover
+0  New York         28.0      20.0        60.0           76.0          78
+[2025-05-06 11:23:07,676] 67 root - INFO - Initializing PredictPipeline...
+[2025-05-06 11:23:07,676] 69 root - INFO - Making prediction...
+[2025-05-06 11:23:07,676] 27 root - INFO - Loading preprocessor from C:\Users\Praveen\OneDrive\Desktop\weather_prediction\artifacts\preprocessor.pkl
+[2025-05-06 11:23:07,737] 29 root - INFO - Loading model from C:\Users\Praveen\OneDrive\Desktop\weather_prediction\artifacts\final_model.pkl
+[2025-05-06 11:23:07,766] 32 root - INFO - Transforming input features
+[2025-05-06 11:23:07,790] 35 root - INFO - Making prediction
+[2025-05-06 11:23:07,799] 73 root - INFO - Raw prediction results: [0.]
+[2025-05-06 11:23:07,800] 75 root - INFO - Final prediction result: 0.0
+[2025-05-06 11:23:07,801] 97 werkzeug - INFO - 127.0.0.1 - - [06/May/2025 11:23:07] "POST /predict HTTP/1.1" 200 -

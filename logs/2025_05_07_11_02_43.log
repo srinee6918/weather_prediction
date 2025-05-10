@@ -1,0 +1,121 @@
+[2025-05-07 11:02:43,888] 97 werkzeug - WARNING -  * Debugger is active!
+[2025-05-07 11:02:43,890] 97 werkzeug - INFO -  * Debugger PIN: 143-783-530
+[2025-05-07 11:02:47,591] 97 werkzeug - INFO - 127.0.0.1 - - [07/May/2025 11:02:47] "GET / HTTP/1.1" 200 -
+[2025-05-07 11:02:47,635] 97 werkzeug - INFO - 127.0.0.1 - - [07/May/2025 11:02:47] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2025-05-07 11:02:47,701] 97 werkzeug - INFO - 127.0.0.1 - - [07/May/2025 11:02:47] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2025-05-07 11:03:17,992] 34 root - INFO - Received form data:
+[2025-05-07 11:03:17,994] 37 root - INFO - Location: New York
+[2025-05-07 11:03:17,996] 37 root - INFO - Temperature: 23
+[2025-05-07 11:03:17,996] 37 root - INFO - Humidity: 32
+[2025-05-07 11:03:17,996] 37 root - INFO - Wind_Speed: 70
+[2025-05-07 11:03:17,996] 37 root - INFO - Precipitation: 66
+[2025-05-07 11:03:17,996] 37 root - INFO - Cloud_Cover: 80
+[2025-05-07 11:03:17,996] 59 root - INFO - Input data validated and created
+[2025-05-07 11:03:17,996] 73 root - INFO - Dataframe Gathered
+[2025-05-07 11:03:17,996] 63 root - INFO - Input DataFrame created:
+[2025-05-07 11:03:18,001] 64 root - INFO - 
+   Location  Temperature  Humidity  Wind Speed  Precipitation Cloud Cover
+0  New York         23.0      32.0        70.0           66.0          80
+[2025-05-07 11:03:18,001] 67 root - INFO - Initializing PredictPipeline...
+[2025-05-07 11:03:18,003] 69 root - INFO - Making prediction...
+[2025-05-07 11:03:18,004] 27 root - INFO - Loading preprocessor from C:\Users\Praveen\OneDrive\Desktop\weather_prediction\artifacts\preprocessor.pkl
+[2025-05-07 11:03:18,304] 29 root - INFO - Loading model from C:\Users\Praveen\OneDrive\Desktop\weather_prediction\artifacts\final_model.pkl
+[2025-05-07 11:03:18,409] 32 root - INFO - Transforming input features
+[2025-05-07 11:03:18,414] 35 root - INFO - Making prediction
+[2025-05-07 11:03:18,414] 73 root - INFO - Raw prediction results: [0.]
+[2025-05-07 11:03:18,414] 75 root - INFO - Final prediction result: 0.0
+[2025-05-07 11:03:18,422] 82 root - ERROR - Prediction error: 'data' is undefined
+Traceback (most recent call last):
+  File "C:\Users\Praveen\OneDrive\Desktop\weather_prediction\app.py", line 79, in predict_datapoint
+    return render_template('result.html', final_result=prediction_result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\Praveen\OneDrive\Desktop\weather_prediction\templates\result.html", line 110, in top-level template code
+    <span>Temperature: {{ data.Temperature }}°C</span>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\jinja2\environment.py", line 490, in getattr
+    return getattr(obj, attribute)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'data' is undefined
+[2025-05-07 11:03:18,446] 91 root - ERROR - Error in predict_datapoint: An error occurred: Prediction failed: 'data' is undefined
+
+Traceback:
+  File "C:\Users\Praveen\OneDrive\Desktop\weather_prediction\app.py", line 79, in predict_datapoint
+    return render_template('result.html', final_result=prediction_result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\Praveen\OneDrive\Desktop\weather_prediction\templates\result.html", line 110, in top-level template code
+    <span>Temperature: {{ data.Temperature }}°C</span>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\jinja2\environment.py", line 490, in getattr
+    return getattr(obj, attribute)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+Traceback (most recent call last):
+  File "C:\Users\Praveen\OneDrive\Desktop\weather_prediction\app.py", line 79, in predict_datapoint
+    return render_template('result.html', final_result=prediction_result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\Praveen\OneDrive\Desktop\weather_prediction\templates\result.html", line 110, in top-level template code
+    <span>Temperature: {{ data.Temperature }}°C</span>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\jinja2\environment.py", line 490, in getattr
+    return getattr(obj, attribute)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'data' is undefined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Praveen\OneDrive\Desktop\weather_prediction\app.py", line 87, in predict_datapoint
+    raise RuntimeError(error_msg)
+RuntimeError: Prediction failed: 'data' is undefined
+
+Traceback:
+  File "C:\Users\Praveen\OneDrive\Desktop\weather_prediction\app.py", line 79, in predict_datapoint
+    return render_template('result.html', final_result=prediction_result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\Praveen\OneDrive\Desktop\weather_prediction\templates\result.html", line 110, in top-level template code
+    <span>Temperature: {{ data.Temperature }}°C</span>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\jinja2\environment.py", line 490, in getattr
+    return getattr(obj, attribute)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+
+[2025-05-07 11:03:18,448] 97 werkzeug - INFO - 127.0.0.1 - - [07/May/2025 11:03:18] "[31m[1mPOST /predict HTTP/1.1[0m" 400 -

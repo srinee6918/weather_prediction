@@ -1,55 +1,87 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Prediction</title>
-    <style>
-        body { font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; }
-        .form-group { margin-bottom: 15px; }
-        label { display: block; margin-bottom: 5px; }
-        input, select { width: 100%; padding: 8px; margin-top: 5px; }
-        button { padding: 10px 20px; background-color: #4CAF50; color: white; border: none; cursor: pointer; }
-        button:hover { background-color: #45a049; }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <h1>Weather Prediction</h1>
-    <form action="/predict" method="post">
-        <div class="form-group">
-            <label for="Location">Location:</label>
-            <select id="Location" name="Location" required>
-                <option value="New York">New York</option>
-                <option value="Los Angeles">Los Angeles</option>
-                <option value="Chicago">Chicago</option>
-                <!-- Add more locations as needed -->
-            </select>
+    <div class="container">
+        <div class="weather-card">
+            <div class="card-header">
+                <i class="fas fa-cloud-sun weather-icon"></i>
+                <h1>Weather Prediction</h1>
+                <p>Enter weather details to predict rain conditions</p>
+            </div>
+            
+            <form action="/predict" method="post" class="weather-form">
+                <div class="form-group">
+                    <div class="input-with-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <select id="Location" name="Location" required>
+                            <option value="" disabled selected>Select Location</option>
+                            <option value="New York">New York</option>
+                            <option value="Los Angeles">Los Angeles</option>
+                            <option value="Chicago">Chicago</option>
+                            <option value="Houston">Houston</option>
+                            <option value="Phoenix">Phoenix</option>
+                            <option value="San Francisco">San Francisco</option>
+                            <option value="San Diego">San Diego</option>
+                            <option value="San Jose">San Jose</option>
+                            <option value="San Bernardino">San Bernardino</option>
+                            <option value="Washington D.C">Washington D.C</option>
+                        
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group half-width">
+                        <div class="input-with-icon">
+                            <i class="fas fa-thermometer-half"></i>
+                            <input type="number" step="0.1" id="Temperature" name="Temperature" placeholder="Temperature (°C)" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group half-width">
+                        <div class="input-with-icon">
+                            <i class="fas fa-tint"></i>
+                            <input type="number" step="0.1" id="Humidity" name="Humidity" placeholder="Humidity (%)" min="0" max="100" required>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group half-width">
+                        <div class="input-with-icon">
+                            <i class="fas fa-wind"></i>
+                            <input type="number" step="0.1" id="Wind_Speed" name="Wind_Speed" placeholder="Wind Speed (km/h)" min="0" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group half-width">
+                        <div class="input-with-icon">
+                            <i class="fas fa-cloud-rain"></i>
+                            <input type="number" step="0.1" id="Precipitation" name="Precipitation" placeholder="Precipitation (mm)" min="0" required>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <div class="input-with-icon">
+                        <i class="fas fa-cloud"></i>
+                        <input type="number" step="1" id="Cloud_Cover" name="Cloud_Cover" placeholder="Cloud Cover (%)" min="0" max="100" required>
+                    </div>
+                </div>
+                
+                <button type="submit" class="predict-btn">
+                    <i class="fas fa-search"></i> Predict Weather
+                </button>
+            </form>
         </div>
-        
-        <div class="form-group">
-            <label for="Temperature">Temperature (°C):</label>
-            <input type="number" step="0.1" id="Temperature" name="Temperature" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="Humidity">Humidity (%):</label>
-            <input type="number" step="0.1" id="Humidity" name="Humidity" min="0" max="100" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="Wind_Speed">Wind Speed (km/h):</label>
-            <input type="number" step="0.1" id="Wind_Speed" name="Wind_Speed" min="0" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="Precipitation">Precipitation (mm):</label>
-            <input type="number" step="0.1" id="Precipitation" name="Precipitation" min="0" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="Cloud_Cover">Cloud Cover (%):</label>
-            <input type="number" step="1" id="Cloud_Cover" name="Cloud_Cover" min="0" max="100" required>
-        </div>
-        
-        <button type="submit">Predict</button>
-    </form>
+    </div>
 </body>
 </html>

@@ -1,0 +1,30 @@
+[2025-05-09 11:24:06,442] 97 werkzeug - WARNING -  * Debugger is active!
+[2025-05-09 11:24:06,445] 97 werkzeug - INFO -  * Debugger PIN: 143-783-530
+[2025-05-09 11:24:09,520] 97 werkzeug - INFO - 127.0.0.1 - - [09/May/2025 11:24:09] "GET / HTTP/1.1" 200 -
+[2025-05-09 11:24:09,575] 97 werkzeug - INFO - 127.0.0.1 - - [09/May/2025 11:24:09] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2025-05-09 11:24:09,643] 97 werkzeug - INFO - 127.0.0.1 - - [09/May/2025 11:24:09] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2025-05-09 11:24:34,289] 34 root - INFO - Received form data:
+[2025-05-09 11:24:34,292] 37 root - INFO - Location: New York
+[2025-05-09 11:24:34,293] 37 root - INFO - Temperature: 23
+[2025-05-09 11:24:34,293] 37 root - INFO - Humidity: 45
+[2025-05-09 11:24:34,293] 37 root - INFO - Wind_Speed: 87
+[2025-05-09 11:24:34,293] 37 root - INFO - Precipitation: 45
+[2025-05-09 11:24:34,293] 37 root - INFO - Cloud_Cover: 90
+[2025-05-09 11:24:34,293] 59 root - INFO - Input data validated and created
+[2025-05-09 11:24:34,298] 73 root - INFO - Dataframe Gathered
+[2025-05-09 11:24:34,298] 63 root - INFO - Input DataFrame created:
+[2025-05-09 11:24:34,309] 64 root - INFO - 
+   Location  Temperature  Humidity  Wind Speed  Precipitation Cloud Cover
+0  New York         23.0      45.0        87.0           45.0          90
+[2025-05-09 11:24:34,309] 67 root - INFO - Initializing PredictPipeline...
+[2025-05-09 11:24:34,309] 69 root - INFO - Making prediction...
+[2025-05-09 11:24:34,309] 27 root - INFO - Loading preprocessor from C:\Users\Praveen\OneDrive\Desktop\weather_prediction\artifacts\preprocessor.pkl
+[2025-05-09 11:24:34,675] 29 root - INFO - Loading model from C:\Users\Praveen\OneDrive\Desktop\weather_prediction\artifacts\final_model.pkl
+[2025-05-09 11:24:34,832] 32 root - INFO - Transforming input features
+[2025-05-09 11:24:34,846] 35 root - INFO - Making prediction
+[2025-05-09 11:24:34,847] 73 root - INFO - Raw prediction results: [0.]
+[2025-05-09 11:24:34,847] 75 root - INFO - Final prediction result: 0.0
+[2025-05-09 11:24:34,879] 97 werkzeug - INFO - 127.0.0.1 - - [09/May/2025 11:24:34] "POST /predict HTTP/1.1" 200 -
+[2025-05-09 11:24:46,265] 97 werkzeug - INFO - 127.0.0.1 - - [09/May/2025 11:24:46] "GET / HTTP/1.1" 200 -
+[2025-05-09 11:24:46,283] 97 werkzeug - INFO - 127.0.0.1 - - [09/May/2025 11:24:46] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2025-05-09 11:38:24,059] 97 werkzeug - INFO -  * Detected change in 'C:\\Users\\Praveen\\OneDrive\\Desktop\\weather_prediction\\src\\Weather_prediction\\components\\Model_evaluation.py', reloading

@@ -1,0 +1,29 @@
+[2025-05-09 11:39:42,277] 97 werkzeug - WARNING -  * Debugger is active!
+[2025-05-09 11:39:42,279] 97 werkzeug - INFO -  * Debugger PIN: 143-783-530
+[2025-05-09 11:39:46,681] 97 werkzeug - INFO - 127.0.0.1 - - [09/May/2025 11:39:46] "GET / HTTP/1.1" 200 -
+[2025-05-09 11:39:46,725] 97 werkzeug - INFO - 127.0.0.1 - - [09/May/2025 11:39:46] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2025-05-09 11:39:46,933] 97 werkzeug - INFO - 127.0.0.1 - - [09/May/2025 11:39:46] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2025-05-09 11:40:10,473] 34 root - INFO - Received form data:
+[2025-05-09 11:40:10,477] 37 root - INFO - Location: Los Angeles
+[2025-05-09 11:40:10,489] 37 root - INFO - Temperature: 23
+[2025-05-09 11:40:10,489] 37 root - INFO - Humidity: 21
+[2025-05-09 11:40:10,489] 37 root - INFO - Wind_Speed: 60
+[2025-05-09 11:40:10,489] 37 root - INFO - Precipitation: 45
+[2025-05-09 11:40:10,489] 37 root - INFO - Cloud_Cover: 90
+[2025-05-09 11:40:10,490] 59 root - INFO - Input data validated and created
+[2025-05-09 11:40:10,493] 73 root - INFO - Dataframe Gathered
+[2025-05-09 11:40:10,494] 63 root - INFO - Input DataFrame created:
+[2025-05-09 11:40:10,502] 64 root - INFO - 
+      Location  Temperature  Humidity  Wind Speed  Precipitation Cloud Cover
+0  Los Angeles         23.0      21.0        60.0           45.0          90
+[2025-05-09 11:40:10,502] 67 root - INFO - Initializing PredictPipeline...
+[2025-05-09 11:40:10,503] 69 root - INFO - Making prediction...
+[2025-05-09 11:40:10,503] 27 root - INFO - Loading preprocessor from C:\Users\Praveen\OneDrive\Desktop\weather_prediction\artifacts\preprocessor.pkl
+[2025-05-09 11:40:10,698] 29 root - INFO - Loading model from C:\Users\Praveen\OneDrive\Desktop\weather_prediction\artifacts\final_model.pkl
+[2025-05-09 11:40:10,791] 32 root - INFO - Transforming input features
+[2025-05-09 11:40:10,799] 35 root - INFO - Making prediction
+[2025-05-09 11:40:10,799] 73 root - INFO - Raw prediction results: [0.]
+[2025-05-09 11:40:10,801] 75 root - INFO - Final prediction result: 0.0
+[2025-05-09 11:40:10,806] 97 werkzeug - INFO - 127.0.0.1 - - [09/May/2025 11:40:10] "POST /predict HTTP/1.1" 200 -
+[2025-05-09 11:40:14,254] 97 werkzeug - INFO - 127.0.0.1 - - [09/May/2025 11:40:14] "GET / HTTP/1.1" 200 -
+[2025-05-09 11:40:14,266] 97 werkzeug - INFO - 127.0.0.1 - - [09/May/2025 11:40:14] "[36mGET /static/style.css HTTP/1.1[0m" 304 -

@@ -1,0 +1,28 @@
+[2025-05-09 11:52:10,779] 97 werkzeug - WARNING -  * Debugger is active!
+[2025-05-09 11:52:10,782] 97 werkzeug - INFO -  * Debugger PIN: 143-783-530
+[2025-05-09 11:52:15,969] 97 werkzeug - INFO - 127.0.0.1 - - [09/May/2025 11:52:15] "GET / HTTP/1.1" 200 -
+[2025-05-09 11:52:16,016] 97 werkzeug - INFO - 127.0.0.1 - - [09/May/2025 11:52:16] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[2025-05-09 11:55:40,427] 34 root - INFO - Received form data:
+[2025-05-09 11:55:40,429] 37 root - INFO - Location: New York
+[2025-05-09 11:55:40,429] 37 root - INFO - Temperature: 0.4
+[2025-05-09 11:55:40,429] 37 root - INFO - Humidity: 0.1
+[2025-05-09 11:55:40,443] 37 root - INFO - Wind_Speed: 0.1
+[2025-05-09 11:55:40,443] 37 root - INFO - Precipitation: 1.1
+[2025-05-09 11:55:40,444] 37 root - INFO - Cloud_Cover: 49
+[2025-05-09 11:55:40,444] 59 root - INFO - Input data validated and created
+[2025-05-09 11:55:40,446] 73 root - INFO - Dataframe Gathered
+[2025-05-09 11:55:40,446] 63 root - INFO - Input DataFrame created:
+[2025-05-09 11:55:40,455] 64 root - INFO - 
+   Location  Temperature  Humidity  Wind Speed  Precipitation Cloud Cover
+0  New York          0.4       0.1         0.1            1.1          49
+[2025-05-09 11:55:40,455] 67 root - INFO - Initializing PredictPipeline...
+[2025-05-09 11:55:40,455] 69 root - INFO - Making prediction...
+[2025-05-09 11:55:40,455] 27 root - INFO - Loading preprocessor from C:\Users\Praveen\OneDrive\Desktop\weather_prediction\artifacts\preprocessor.pkl
+[2025-05-09 11:55:40,798] 29 root - INFO - Loading model from C:\Users\Praveen\OneDrive\Desktop\weather_prediction\artifacts\final_model.pkl
+[2025-05-09 11:55:40,913] 32 root - INFO - Transforming input features
+[2025-05-09 11:55:40,924] 35 root - INFO - Making prediction
+[2025-05-09 11:55:40,925] 73 root - INFO - Raw prediction results: [0.]
+[2025-05-09 11:55:40,925] 75 root - INFO - Final prediction result: 0.0
+[2025-05-09 11:55:40,933] 97 werkzeug - INFO - 127.0.0.1 - - [09/May/2025 11:55:40] "POST /predict HTTP/1.1" 200 -
+[2025-05-09 11:55:43,806] 97 werkzeug - INFO - 127.0.0.1 - - [09/May/2025 11:55:43] "GET / HTTP/1.1" 200 -
+[2025-05-09 11:55:43,819] 97 werkzeug - INFO - 127.0.0.1 - - [09/May/2025 11:55:43] "[36mGET /static/style.css HTTP/1.1[0m" 304 -

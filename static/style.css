@@ -1,71 +1,258 @@
-body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(to right, #87CEEB, #ADD8E6); /* Sky blue gradient */
+/* Base Styles */
+:root {
+    --primary-color: #4361ee;
+    --secondary-color: #3f37c9;
+    --accent-color: #4cc9f0;
+    --success-color: #4caf50;
+    --danger-color: #f44336;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+    --text-color: #333;
+    --text-light: #6c757d;
+    --border-radius: 12px;
+    --box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+* {
     margin: 0;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 50%, #80deea 100%);
     min-height: 100vh;
-    color: #333; /* Dark grey text for contrast */
+    padding: 20px;
+    color: var(--text-color);
+    line-height: 1.6;
 }
 
 .container {
-    background-color: #ffffff; /* White background for the form container */
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-h1 {
-    color: #005A9C; /* Darker blue for heading */
+/* Weather Card */
+.weather-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.card-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 30px;
     text-align: center;
-    margin-bottom: 25px;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+    transform: rotate(30deg);
+}
+
+.weather-icon {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    display: block;
+    color: white;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-header h1 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 600;
+    color: white;
+}
+
+.card-header p {
+    margin-top: 8px;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Form Styles */
+.weather-form {
+    padding: 30px;
 }
 
 .form-group {
     margin-bottom: 20px;
 }
 
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: #555; /* Slightly lighter grey for labels */
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -10px;
 }
 
-.form-group input[type="text"],
-.form-group input[type="number"],
-.form-group select {
-    width: calc(100% - 20px); /* Adjust width to account for padding */
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1em;
-    box-sizing: border-box; /* Include padding and border in element's total width and height */
+.half-width {
+    flex: 1;
+    min-width: 200px;
+    padding: 0 10px;
 }
 
-.form-group input:focus,
-.form-group select:focus {
-    border-color: #007BFF; /* Blue border on focus */
-    outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+.input-with-icon {
+    position: relative;
+    margin-bottom: 15px;
 }
 
-button[type="submit"] {
-    background-color: #28a745; /* Green button */
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.1em;
+.input-with-icon i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+input, select {
     width: 100%;
-    transition: background-color 0.3s ease;
+    padding: 14px 14px 14px 45px;
+    border: 2px solid #e1e5ee;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: #f8f9fa;
+    color: var(--text-color);
 }
 
-button[type="submit"]:hover {
-    background-color: #218838; /* Darker green on hover */
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(76, 201, 240, 0.2);
+}
+
+input::placeholder {
+    color: var(--text-light);
+}
+
+/* Button Styles */
+.predict-btn {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: var(--border-radius);
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+}
+
+.predict-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(67, 97, 238, 0.4);
+}
+
+.predict-btn:active {
+    transform: translateY(0);
+}
+
+/* Result Page Styles */
+.result-container {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.result-card {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 40px;
+    margin: 20px auto;
+    max-width: 500px;
+    box-shadow: var(--box-shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.result-icon {
+    font-size: 5rem;
+    margin-bottom: 20px;
+}
+
+.result-card.rain .result-icon {
+    color: var(--primary-color);
+}
+
+.result-card.no-rain .result-icon {
+    color: var(--danger-color);
+}
+
+.result-title {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.result-message {
+    color: var(--text-light);
+    margin-bottom: 30px;
+}
+
+.back-btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.back-btn:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .card-header {
+        padding: 20px 15px;
+    }
+    
+    .weather-form {
+        padding: 20px 15px;
+    }
+    
+    .half-width {
+        flex: 100%;
+        padding: 0;
+    }
+    
+    .result-card {
+        padding: 30px 20px;
+    }
 }

@@ -1,33 +1,115 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Prediction Result</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Prediction Result</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        body { font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; }
-        .result { 
-            padding: 20px; 
-            margin: 20px 0; 
-            border-radius: 5px; 
+        body { 
+            font-family: 'Poppins', Arial, sans-serif; 
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 600px;
+            width: 100%;
+        }
+        .result-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
-        .rain { background-color: #d4edda; color: #155724; }
-        .no-rain { background-color: #f8d7da; color: #721c24; }
-        button { 
-            padding: 10px 20px; 
-            background-color: #007bff; 
-            color: white; 
-            border: none; 
-            cursor: pointer; 
+        .rain {
+            border-top: 5px solid #4a90e2;
+        }
+        .no-rain {
+            border-top: 5px solid #f39c12;
+        }
+        .result-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+        .rain .result-icon {
+            color: #4a90e2;
+        }
+        .no-rain .result-icon {
+            color: #f39c12;
+        }
+        .result-title {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        .result-message {
+            color: #7f8c8d;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        .result-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 25px 0;
+            text-align: left;
+        }
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #2c3e50;
+        }
+        .detail-item i {
+            color: #7f8c8d;
+            width: 20px;
+            text-align: center;
+        }
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 25px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
             margin-top: 20px;
         }
-        button:hover { background-color: #0056b3; }
+        .back-btn:hover {
+            background-color: #2980b9;
+        }
     </style>
 </head>
 <body>
-    <h1>Prediction Result</h1>
-    <div class="result {% if final_result == 1 %}rain{% else %}no-rain{% endif %}">
-        <h2>{% if final_result == 1 %}Rain{% else %}No Rain{% endif %}</h2>
+    <div class="container">
+        <div class="result-card {% if final_result == 1 %}rain{% else %}no-rain{% endif %}">
+            {% if final_result == 1 %}
+                <i class="fas fa-cloud-rain result-icon"></i>
+                <h1 class="result-title">Rain Expected</h1>
+                <p class="result-message">Don't forget your umbrella! The weather conditions indicate a high chance of rain.</p>
+            {% else %}
+                <i class="fas fa-sun result-icon"></i>
+                <h1 class="result-title">No Rain Expected</h1>
+                <p class="result-message">Clear skies ahead! You can leave your umbrella at home today.</p>
+            {% endif %}
+            
+            
+            
+            <a href="/" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Make Another Prediction
+            </a>
+        </div>
     </div>
-    <button onclick="window.history.back()">Make Another Prediction</button>
 </body>
 </html>

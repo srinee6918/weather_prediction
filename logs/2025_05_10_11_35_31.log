@@ -1,0 +1,142 @@
+[2025-05-10 11:35:32,631] 97 werkzeug - WARNING -  * Debugger is active!
+[2025-05-10 11:35:32,639] 97 werkzeug - INFO -  * Debugger PIN: 143-783-530
+[2025-05-10 11:35:48,620] 34 root - INFO - Received form data:
+[2025-05-10 11:35:48,623] 37 root - INFO - Location: New York
+[2025-05-10 11:35:48,623] 37 root - INFO - Temperature: 80.9
+[2025-05-10 11:35:48,623] 37 root - INFO - Humidity: 64.7
+[2025-05-10 11:35:48,623] 37 root - INFO - Wind_Speed: 14.1
+[2025-05-10 11:35:48,623] 37 root - INFO - Precipitation: 0.9
+[2025-05-10 11:35:48,623] 37 root - INFO - Cloud_Cover: 77
+[2025-05-10 11:35:48,623] 59 root - INFO - Input data validated and created
+[2025-05-10 11:35:48,662] 73 root - INFO - Dataframe Gathered
+[2025-05-10 11:35:48,665] 63 root - INFO - Input DataFrame created:
+[2025-05-10 11:35:48,672] 64 root - INFO - 
+   Location  Temperature  Humidity  Wind Speed  Precipitation Cloud Cover
+0  New York         80.9      64.7        14.1            0.9          77
+[2025-05-10 11:35:48,674] 67 root - INFO - Initializing PredictPipeline...
+[2025-05-10 11:35:48,676] 69 root - INFO - Making prediction...
+[2025-05-10 11:35:48,676] 27 root - INFO - Loading preprocessor from C:\Users\Praveen\OneDrive\Desktop\weather_prediction\artifacts\preprocessor.pkl
+[2025-05-10 11:35:48,917] 29 root - INFO - Loading model from C:\Users\Praveen\OneDrive\Desktop\weather_prediction\artifacts\final_model.pkl
+[2025-05-10 11:35:49,000] 32 root - INFO - Transforming input features
+[2025-05-10 11:35:49,012] 35 root - INFO - Making prediction
+[2025-05-10 11:35:49,012] 73 root - INFO - Raw prediction results: [1.]
+[2025-05-10 11:35:49,012] 75 root - INFO - Final prediction result: 1.0
+[2025-05-10 11:35:49,022] 82 root - ERROR - Prediction error: unexpected '<'
+Traceback (most recent call last):
+  File "C:\Users\Praveen\OneDrive\Desktop\weather_prediction\app.py", line 79, in predict_datapoint
+    return render_template('result.html', final_result=prediction_result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\jinja2\loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\jinja2\environment.py", line 771, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\Praveen\OneDrive\Desktop\weather_prediction\templates\result.html", line 126, in template
+    <span>Cloud Cover: {{ <p>Temperature: {{ data.Temperature }}</p>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.TemplateSyntaxError: unexpected '<'
+[2025-05-10 11:35:49,027] 91 root - ERROR - Error in predict_datapoint: An error occurred: Prediction failed: unexpected '<'
+
+Traceback:
+  File "C:\Users\Praveen\OneDrive\Desktop\weather_prediction\app.py", line 79, in predict_datapoint
+    return render_template('result.html', final_result=prediction_result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\jinja2\loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\jinja2\environment.py", line 771, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\Praveen\OneDrive\Desktop\weather_prediction\templates\result.html", line 126, in template
+    <span>Cloud Cover: {{ <p>Temperature: {{ data.Temperature }}</p>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+Traceback (most recent call last):
+  File "C:\Users\Praveen\OneDrive\Desktop\weather_prediction\app.py", line 79, in predict_datapoint
+    return render_template('result.html', final_result=prediction_result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\jinja2\loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\jinja2\environment.py", line 771, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\Praveen\OneDrive\Desktop\weather_prediction\templates\result.html", line 126, in template
+    <span>Cloud Cover: {{ <p>Temperature: {{ data.Temperature }}</p>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.TemplateSyntaxError: unexpected '<'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Praveen\OneDrive\Desktop\weather_prediction\app.py", line 87, in predict_datapoint
+    raise RuntimeError(error_msg)
+RuntimeError: Prediction failed: unexpected '<'
+
+Traceback:
+  File "C:\Users\Praveen\OneDrive\Desktop\weather_prediction\app.py", line 79, in predict_datapoint
+    return render_template('result.html', final_result=prediction_result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\jinja2\loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\jinja2\environment.py", line 771, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\Praveen\anaconda3\envs\weather_prediction_py_3.12\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\Praveen\OneDrive\Desktop\weather_prediction\templates\result.html", line 126, in template
+    <span>Cloud Cover: {{ <p>Temperature: {{ data.Temperature }}</p>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+[2025-05-10 11:35:49,027] 97 werkzeug - INFO - 127.0.0.1 - - [10/May/2025 11:35:49] "[31m[1mPOST /predict HTTP/1.1[0m" 400 -
